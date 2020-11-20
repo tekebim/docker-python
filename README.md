@@ -30,7 +30,8 @@ docker/getting-started - the image to use
 > La commande `run` permet de lancer une nouvelle instance à partir d'une image "built"
 
 > La commande `exec` permet de lancer un terminal de commande en bash au sein d'un container
->
+`docker exec -it <mycontainer> bash`
+
 * expliquer ce qu'est un port dans un container
 
 > Le port d'un container permet de mapper le point d'entrée d'un container dans l'environnement. Ainsi on peut mapper des ports pour chaque container. Chacun de ces containers pourra écouter des points d'entrée différents afin d'être "rendu"
@@ -42,10 +43,10 @@ docker/getting-started - the image to use
 ## How to create python flask image
 ### First step organize project
 * Folder /app 
-    * which contains /src subfolder 
-        * with our projects pyhton source app code
-    * requirements.txt file : determine the pyhton app lib dependencies (flask in this project)
-* Dockerfile (receipe for building custom image)
+    * with our projects python source app code
+* requirements.txt file : determine the python app lib dependencies (flask in this project)
+    > Le fichier requirements.txt peut alors être ajouté dans un système de gestion de versions comme faisant partie de votre application. Les utilisateurs peuvent alors installer tous les paquets nécessaires à l’application avec `install -r` 
+* Dockerfile (needed for building custom image)
 
 ### Commands execution
 

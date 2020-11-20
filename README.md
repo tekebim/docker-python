@@ -1,6 +1,28 @@
 # docker-python
 Python container with docker
 
+1. Comprendre la différence entre images et containers et à quoi sert un `Dockerfile`
+> Une image est un ensemble de couches que l'on décrit pour construire "build" notre application
+
+> L'instance de cette image s'appelle un conteneur
+
+### Run hello-world
+```
+docker run hello-world
+```
+### Run ubuntu
+```
+docker run ubuntu
+```
+### Run first docker
+```docker run -dp 80:80 docker/getting-started```
+Open your browser to http://localhost
+```
+-d - run the container in detached mode (in the background)
+-p 80:80 - map port 80 of the host to port 80 in the container
+docker/getting-started - the image to use
+```
+
 ## TP Docker & Flask 
 
 **Quickstart Docker** 

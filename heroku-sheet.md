@@ -38,3 +38,24 @@ heroku stack:set container
 git push heroku master
 ```
 
+Getting started
+Make sure you have a working Docker installation (eg. docker ps) and that you’re logged in to Heroku (heroku login).
+
+Log in to Container Registry:
+
+`heroku container:login`
+
+```heroku create
+Creating salty-fortress-4191... done, stack is heroku-18
+https://salty-fortress-4191.herokuapp.com/ | https://git.heroku.com/salty-fortress-4191.git
+Build the image and push to Container Registry:
+```
+```
+heroku container:push web
+```
+Then release the image to your app:
+
+```heroku container:release web```
+Now open the app in your browser:
+
+```heroku open```

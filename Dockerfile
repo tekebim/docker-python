@@ -23,7 +23,9 @@ RUN apt-get -qq update -y \
 
 RUN pip install -r requirements.txt
 
-EXPOSE 80
+# Expose is NOT supported by Heroku
+# EXPOSE 5000
+# EXPOSE 80
 
 # command to run on container start
 CMD [ "python", "./app/app.py" ]

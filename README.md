@@ -54,7 +54,9 @@ Create a dockerfile
 
 > WORKDIR : Specify the workdir (app in our case)
 
-> COPY : the files ( especially requirements.txt)
+> ADD : add the current working dir on that image
+
+> COPY : can be used to add specific files if included in sub directory ( especially requirements.txt)
 
 > RUN : execute require commands
 
@@ -66,6 +68,9 @@ FROM python:3.8
 
 # Set the working directory.
 WORKDIR /app
+
+# Copy and load files from directory
+ADD . /app
 
 # Copy the file from your host to your current location.
 COPY requirements.txt .
@@ -80,8 +85,8 @@ CMD [ "python", "./app.py" ]
 > Build our custom image from this whole project
 `docker build -t python_3.8-flask- .`
 
-> Run the container
-`docker run -d python_3.8-flask`
+> Run the container on external port 5001
+`docker run -d -p 5000:5001 python_3.8-flask`
 
 ## TP Docker & Flask 
 

@@ -23,6 +23,16 @@ Open your browser to http://localhost
 docker/getting-started - the image to use
 ```
 
+* expliquer les commandes docker `build`, `run` et `exec`
+
+> La commande `build` permet de créer une image à partir d'une liste de fichiers / répertoire de notre projet et ou en incluant des dépendances (d'autres docker images)
+
+> La commande `run` permet de lancer une nouvelle instance à partir d'une image "built"
+
+* expliquer ce qu'est un port dans un container
+
+> Le port d'un container permet de mapper le point d'entrée d'un container dans l'environnement. Ainsi on peut mapper des ports pour chaque container. Chacun de ces containers pourra écouter des points d'entrée différents afin d'être "rendu"
+
 ## TP Docker & Flask 
 
 **Quickstart Docker** 

@@ -3,19 +3,16 @@
 FROM python:3.8
 
 # Set the working directory.
-WORKDIR /code
+WORKDIR /app
 
 # Copy and load files from directory
-ADD . /app/
+ADD . /app
 
 # Copy the file from your host to your current location.
-COPY app/requirements.txt .
+COPY requirements.txt .
 
 # install dependencies
 RUN pip install -r requirements.txt
-
-# Copy the file from your host to your current location.
-COPY app/src/ .
 
 # command to run on container start
 CMD [ "python", "./app.py" ]

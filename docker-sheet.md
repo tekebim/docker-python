@@ -40,7 +40,6 @@
 * `docker version` : Afficher les informations de version Docker \
 * `docker wait` : Bloquer jusqu’à l’arrêt du conteneur, puis imprime son code de sortie \
 
-
 # Docker Cheat Sheet
 > Test docker
 
@@ -156,7 +155,7 @@ CMD node server.js
 
 source : putaindecode.io
 
-# Docker composer
+# Docker Compose
 
 Docker Compose est un outil qui permet de décrire (dans un fichier YAML) et gérer (en ligne de commande) plusieurs conteneurs comme un ensemble de services inter-connectés. Si je travaille sur une application Rails, je vais par exemple décrire un ensemble composé de 3 conteneurs :
 

@@ -39,6 +39,49 @@ docker/getting-started - the image to use
 
 > La commande `docker ps` permet de montrer que le container est en cours d'execution et le mappage du PORTS permet de déterminer le point d'écoute 
 
+## How to create python flask image
+### First step organize project
+* Folder /app 
+    * which contains /src subfolder 
+        * with our projects pyhton source app code
+    * requirements.txt file : determine the pyhton app lib dependencies (flask in this project)
+* Dockerfile (receipe for building custom image)
+
+### Commands execution
+
+Create a dockerfile
+> From python's image in version 3.8
+
+> WORKDIR : Specify the workdir (app in our case)
+
+> COPY : the files ( especially requirements.txt)
+
+> RUN : execute require commands
+
+> CMD : then then command to start inside the container
+
+```
+# Set base image (host OS)
+FROM python:3.8
+
+# Set the working directory.
+WORKDIR /app
+
+# Copy the file from your host to your current location.
+COPY requirements.txt .
+
+# install dependencies
+RUN pip install -r requirements.txt
+
+# command to run on container start
+CMD [ "python", "./app.py" ]
+```
+
+> Build our custom image from this whole project
+`docker build -t python_3.8-flask- .`
+
+> Run the container
+`docker run -d python_3.8-flask`
 
 ## TP Docker & Flask 
 

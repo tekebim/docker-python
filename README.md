@@ -29,9 +29,16 @@ docker/getting-started - the image to use
 
 > La commande `run` permet de lancer une nouvelle instance à partir d'une image "built"
 
+> La commande `exec` permet de lancer un terminal de commande en bash au sein d'un container
+>
 * expliquer ce qu'est un port dans un container
 
 > Le port d'un container permet de mapper le point d'entrée d'un container dans l'environnement. Ainsi on peut mapper des ports pour chaque container. Chacun de ces containers pourra écouter des points d'entrée différents afin d'être "rendu"
+
+* vérifier en vous connectant à votre container qu'il est bien `up` et qu'il s'aggit bien
+
+> La commande `docker ps` permet de montrer que le container est en cours d'execution et le mappage du PORTS permet de déterminer le point d'écoute 
+
 
 ## TP Docker & Flask 
 

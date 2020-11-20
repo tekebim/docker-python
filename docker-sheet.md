@@ -153,3 +153,56 @@ VOLUME /app/log
 # On lance le serveur quand on démarre le conteneur
 CMD node server.js
 ```
+
+source : putaindecode.io
+
+# Docker composer
+
+Docker Compose est un outil qui permet de décrire (dans un fichier YAML) et gérer (en ligne de commande) plusieurs conteneurs comme un ensemble de services inter-connectés. Si je travaille sur une application Rails, je vais par exemple décrire un ensemble composé de 3 conteneurs :
+
+* un conteneur PostgreSQL
+* un conteneur Redis
+* un conteneur pour le code de mon application
+
+Dans le fichier docker-compose.yml, chaque conteneur est décrit avec un ensemble de paramètres qui correspondent aux options disponibles lors d’un docker run : l’image à utiliser, les volumes à monter, les ports à ouvrir, etc. Mais on peut également y décrire des éléments supplémentaires, comme la possibilité de « construire » (docker build) une image à la volée avant d’en lancer le conteneur.
+
+> Exemple d’une configuration Docker Compose :
+
+voici un exemple de fichier docker-compose.yml :
+
+```
+version: 3
+
+services:
+
+  postgres:
+    image: postgres:10
+    environment:
+      POSTGRES_USER: rails_user
+      POSTGRES_PASSWORD: rails_password
+      POSTGRES_DB: rails_db
+
+  redis:
+    image: redis:3.2-alpine
+
+  rails:
+    build: .
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      DATABASE_URL: 'postgres://rails_user:rails_password@postgres:5432/rails_db'
+      REDIS_HOST: 'redis:6379'
+    volumes:
+      - .:/app
+
+  nginx:
+    image: nginx:latest
+    links:
+      - rails
+    ports:
+      - 3000:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+```
+source : web.leikir.io

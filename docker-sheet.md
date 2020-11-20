@@ -94,3 +94,62 @@
 
 * [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec) to execute a command in container.
 
+# Dockerfile
+
+Les Dockerfiles sont des fichiers qui permettent de construire une image Docker adaptée à nos besoins, étape par étape.
+
+```
+FROM permet de définir notre image de base, vous pouvez l'utiliser seulement une fois dans un Dockerfile.
+```
+
+```
+RUN permet d'exécuter une commande à l'intérieur de votre image comme si vous étiez devant un shell unix.
+```
+
+```
+ADD permet d'ajouter des fichiers locaux ou distants à l'intérieur de votre image, il est le plus souvent utilisé pour importer les sources de votre projet ou des fichiers de configuration.
+```
+```
+WORKDIR permet de changer le répertoire courant de votre image, toutes les commandes qui suivront seront exécutées à partir de ce répertoire.```
+```
+
+```
+EXPOSE et VOLUME permettent respectivement d'indiquer quel port et quel dossier nous souhaitons partager.
+```
+
+Exemple de Dockerfile
+```
+# Image de base
+FROM debian:jessie
+
+# Installation de curl avec apt-get
+RUN apt-get update \
+&& apt-get install -y curl \
+&& rm -rf /var/lib/apt/lists/*
+
+# Installation de Node.js à partir du site officiel
+RUN curl -LO "https://nodejs.org/dist/v0.12.5/node-v0.12.5-linux-x64.tar.gz" \
+&& tar -xzf node-v0.12.5-linux-x64.tar.gz -C /usr/local --strip-components=1 \
+&& rm node-v0.12.5-linux-x64.tar.gz
+
+# Ajout du fichier de dépendances package.json
+ADD package.json /app/
+
+# Changement du repertoire courant
+WORKDIR /app
+
+# Installation des dépendances
+RUN npm install
+
+# Ajout des sources
+ADD . /app/
+
+# On expose le port 3000
+EXPOSE 3000
+
+# On partage un dossier de log
+VOLUME /app/log
+
+# On lance le serveur quand on démarre le conteneur
+CMD node server.js
+```

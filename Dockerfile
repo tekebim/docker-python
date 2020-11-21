@@ -33,7 +33,7 @@ USER ZAakdazd
 
 # Run the app.  CMD is required to run on Heroku
 # define ENV PORT for localhost
-ENV PORT 5000
+# ENV PORT 5000
 # $PORT is set by Heroku
 CMD gunicorn --bind 0.0.0.0:$PORT wsgi
 

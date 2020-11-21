@@ -122,6 +122,23 @@ CMD [ "python", "./app/app.py" ]
 > Run the container on external port 5000
 `docker run -d -p 5000:5000 python_3.8-flask`
 
+
+# Deploy on Heroku platform :
+View _docs/heroku-sheet.md for more details
+
+[View this project online](https://floating-thicket-69219.herokuapp.com/)
+
+API Endpoint [_GET METHOD ONLY] : 
+* [books](https://floating-thicket-69219.herokuapp.com/api/books) *("all" by default)*
+* [books/id](https://floating-thicket-69219.herokuapp.com/api/books/1)
+* [books/title](https://floating-thicket-69219.herokuapp.com/api/books/un%20titre)
+
+Template with data.json :
+* [books](https://floating-thicket-69219.herokuapp.com/books/json)
+* [books/id](https://floating-thicket-69219.herokuapp.com/books/json/258)
+* [books/title](https://floating-thicket-69219.herokuapp.com/books/json/Coffeehouse)
+
+
 ## TP Docker & Flask 
 
 **Quickstart Docker** 

@@ -45,14 +45,16 @@ Log in to Container Registry:
 
 `heroku container:login`
 
-```heroku create
+```heroku create```
+
+```
 Creating salty-fortress-4191... done, stack is heroku-18
 https://salty-fortress-4191.herokuapp.com/ | https://git.heroku.com/salty-fortress-4191.git
 Build the image and push to Container Registry:
 ```
-```
-heroku container:push web
-```
+
+```heroku container:push web```
+
 Then release the image to your app:
 
 ```heroku container:release web```

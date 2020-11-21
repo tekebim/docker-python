@@ -20,7 +20,7 @@ msg_error = 'No books found'
 # default route index
 @app.route('/')
 def index():
-    return 'hello my app'
+    return 'Hello from Flask project built with Docker'
 
 # endpoint all books
 @app.route('/api/books', methods=['GET'])
